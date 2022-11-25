@@ -3,7 +3,6 @@ import axios from "axios"
 import Table from 'react-bootstrap/Table';
 import { Link } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
-// import { Planets } from 'react-preloaders';
 
 
 const HomePage = (props) => {
