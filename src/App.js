@@ -7,6 +7,9 @@ import HomePage from './pages/home';
 import Form from './pages/edit';
 import Update from './pages/update';
 import FooterPage from './components/footer';
+import CartHome from './shoping/Carthome';
+import ProductInfo from './shoping/productinfo';
+import CartPage from './pages/cart';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/update/:id" element={<Update />} />
           <Route path="/edit" element={<Form />} />
+          <Route path="/carthome" element={<CartHome />} />
+          <Route path="/productinfo/:id" element={<ProductInfo />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="*" element={<p>Path not resolved</p>} />
         </Routes>
       </div>

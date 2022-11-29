@@ -31,16 +31,6 @@ const Form = () => {
             }, 3000);
         });
     }
-
-
-    // useEffect(() => {
-    //     axios({
-    //         method: "get",
-    //         url: "https://63314104cff0e7bf70e8fdfb.mockapi.io/Developer/5",
-    //         }).then(function (response) {
-    //         console.log(response.data);
-    //     });
-    // },[]) 
     
   return (
     <div style={{"backgroundColor":"#f1edec"}}>
