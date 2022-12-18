@@ -11,7 +11,7 @@ const About = () => {
 				<div className='row'>
 					<div className='col-lg-12 col-md-12 col-sm-12'>
 						<div className='d-flex justify-content-center align-items-center'>
-							<h1 className='py-5 fntclr' >Welcome to React Js! </h1>
+							<h1 className='py-5 fntclr color-red fw-bold fs-large'>Welcome to Mastan IT Solutions</h1>
 						</div>
 					</div>
 				</div>

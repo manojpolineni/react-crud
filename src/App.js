@@ -10,12 +10,18 @@ import FooterPage from './components/footer';
 import CartHome from './shoping/Carthome';
 import ProductInfo from './shoping/productinfo';
 import CartPage from './pages/cart';
+import React from 'react';
+
+import { ThemeContext } from './theme-context'
+
 
 function App() {
+  const { theme, toggle, dark } = React.useContext(ThemeContext)
+
   return (
-    <>
-      <NavBar/>
-      <div className="container">
+    // <>
+      <div className="app" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+        <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
@@ -27,9 +33,9 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="*" element={<p>Path not resolved</p>} />
         </Routes>
+        <FooterPage />
       </div>
-      <FooterPage />
-    </>  
+    // </>  
   );
 }
 export default App;

@@ -13,9 +13,3 @@ export const DeleteCart = (product) => {
         payload: product
     }
 }
-export const InCrease = (product) => {
-    return {
-        type: "INCREASE",
-        payload: product
-    }
-}

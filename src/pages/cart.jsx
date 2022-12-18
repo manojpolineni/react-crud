@@ -15,7 +15,7 @@ const CartPage = () => {
 
     const HandleIncrement = (item) => {
         console.log("item value", item);
-        dispatch(AddCart( item.id));
+        dispatch(AddCart(item.id));
         // console.log("addcart value", dispatch(AddCart));
     }
     
@@ -45,8 +45,8 @@ const CartPage = () => {
                                     <h3>{item.title}</h3>
                                     <h6>{item.description}</h6>
                                     <p className='lead fw-bold py-2'>{item.qty} X ${item.price} = ${item.qty * item.price}</p>
-                                    <button className='btn btn-outline-dark me-4' onClick={() =>HandleDecrement(item)}><i className='fa fa-minus'></i> </button>
-                                    <button className='btn btn-outline-dark me-4' onClick={()=> HandleIncrement(item)}><i className='fa fa-plus'></i> </button>
+                                    <button className='btn btn-outline-dark me-4' onClick={() =>dispatch(DeleteCart(item.id))}><i className='fa fa-minus'></i> </button>
+                                    <button className='btn btn-outline-dark me-4' onClick={()=> dispatch(AddCart(item.id))}><i className='fa fa-plus'></i> </button>
                                 </div>
                             </div>
                         </div>

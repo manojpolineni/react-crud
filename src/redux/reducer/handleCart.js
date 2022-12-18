@@ -30,25 +30,11 @@ const handleCart = (state = cart, action) => {
             else {
                 return state.map((x) => x.id === product.id ? { ...x, qty: x.qty - 1 } : x)
             }
-        
-        // case "INCREASE":
-        //     return {
-        //         ...state,
-        //         cartItem: AddExistingItemToCart(state.cartItem, action.payload)
-        //     }
             
         default:
             return state;
         // break;
-    }
-
-    
+    }   
 }
-
-    // const AddExistingItemToCart = ((cartItems, itemToAdd) => {
-    //     return cartItems.map(item =>
-    //         item.id === itemToAdd.id ? { ...item, count: item.count + 1 } : item
-    //     )
-    // });
     
     export default handleCart;

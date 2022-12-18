@@ -75,7 +75,7 @@ const CartHome = () => {
           return (
               <div className='col-md-3 mb-4' key={index}>
                 <Card>
-                  <Card.Img variant="top" src={product.image} height={250} />
+                  <Card.Img variant="top" src={product.image} height={250} className='p-3'/>
                   <Card.Body>
                     <Card.Title className='mb-0'>{product.title.substring(0, 12)}</Card.Title>
                     <Card.Text>${product.price}</Card.Text>
