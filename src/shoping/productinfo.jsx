@@ -2,18 +2,27 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Skeleton from 'react-loading-skeleton';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { AddCart } from '../redux/actions';
+import '../App.css';
+import {  useDispatch } from 'react-redux';
+import { AddCart, DeleteCart } from '../redux/actions';
 
 const ProductInfo = () => {
+    const dispatch = useDispatch();
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [addtocart, setAddtoCart] = useState("Add to Cart");
 
-    const dispatch = useDispatch();
+
     const addProduct = (product) => {
-        dispatch(AddCart(product));
+        if (addtocart === "Add to Cart") {
+            setAddtoCart("Remove from Cart");
+            dispatch(AddCart(product));
+        }
+        else {
+            setAddtoCart("Add to Cart");
+            dispatch(DeleteCart(product));
+        }
     } 
         
     useEffect(() => {
@@ -49,6 +58,7 @@ const ProductInfo = () => {
     const ShowProduct = () => {
         return (
             <>
+               
                 <div className='col-md-6'>
                     <img src={product.image} alt={product.title} width={400} height={400} />
                 </div>
@@ -58,7 +68,7 @@ const ProductInfo = () => {
                     <p className='lead fw-bolder'>Rating {product.rating && product.rating.rate} <i className='fa fa-star'></i> </p>
                     <h3 className='display-6 fw-bold my-4'>${product.price}</h3>
                     <p className='lear py-2'>{product.description}</p>
-                    <button className='btn btn-outline-dark px-4 py-2' onClick={()=>addProduct(product)}>Add to Cart</button>
+                    <button className='btn btn-outline-dark px-4 py-2' onClick={() => addProduct(product)}>{addtocart}</button>
                     <Link to='/cart' className='btn btn-dark ms-2 px-3 py-2'> View Cart</Link>
                 </div>
             </>
@@ -68,6 +78,7 @@ const ProductInfo = () => {
   return (
     <div>
         <div className='container py-5'>
+            <div><Link to="/carthome"><i className="fa-solid fa-arrow-left" /></Link></div>
             <div className='row py-4'>
                 {loading ? <Loading/> : <ShowProduct/>}
             </div>

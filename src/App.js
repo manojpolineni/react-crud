@@ -4,6 +4,7 @@ import About from './pages/about';
 import NavBar from './components/navbar';
 import Profile from './pages/profile';
 import HomePage from './pages/home';
+import CheckOut from './pages/checkout';
 import Form from './pages/edit';
 import Update from './pages/update';
 import FooterPage from './components/footer';
@@ -16,7 +17,7 @@ import { ThemeContext } from './theme-context'
 
 
 function App() {
-  const { theme, toggle, dark } = React.useContext(ThemeContext)
+  const { theme } = React.useContext(ThemeContext)
 
   return (
     // <>
@@ -30,6 +31,7 @@ function App() {
           <Route path="/edit" element={<Form />} />
           <Route path="/carthome" element={<CartHome />} />
           <Route path="/productinfo/:id" element={<ProductInfo />} />
+          <Route path="/checkout" element={<CheckOut />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="*" element={<p>Path not resolved</p>} />
         </Routes>

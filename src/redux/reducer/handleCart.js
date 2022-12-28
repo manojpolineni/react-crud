@@ -1,40 +1,72 @@
+
 const cart = [];
 
-const handleCart = (state = cart, action) => {
+export const handleCart = (state = cart, action) => {
     const product = action.payload;
+    
     switch (action.type) {
         case "ADDITEM":
-            // Check if Product is Already Exist
-            const exist = state.find((x) => x.id === product.id);
-            if (exist) {
-                // Increase the Quantity
-                return state.map((x) => 
-                action.id === product.id ? { ...x, qty: x.qty + 1 } : x);
-            }
-            else {
-                const product = action.payload;
-                return [
-                    ...state,
-                    {
-                        ...product,
-                        qty:1,
-                    }
-                ]
-            }
+            return [
+                ...state,
+                {
+                    ...product,
+                    qty: 1,
+                },
+                // localStorage.setItem("item", JSON.stringify(state))
+
+            ]
         
         case "DELETEITEM":
-            const exist1 = state.find((x) => x.id === product.id);
-            if (exist1.qty === 1) {
-                return state.filter((x) => x.id !== exist1.id);
+            return state = state.filter((x) => {
+                return x.id !== product.id
+            })
+        
+        case "INCREASEQTY":
+            const exists = state.find((x) => x.id === product.id);
+            if (exists.qty >= 0) {
+                return state.map((x) => x.id === product.id ? { ...x, qty: x.qty + (x.qty < 10 ? 1: 0) } : x)
             }
             else {
-                return state.map((x) => x.id === product.id ? { ...x, qty: x.qty - 1 } : x)
+                return state;
             }
             
+        case "DECREASEQTY":
+            const exist1 = state.find((x) => x.id === product.id);
+            if (exist1.qty>1) {
+                return state.map((x) => x.id === product.id ? { ...x, qty: x.qty - (x.qty > 1 ? 1: 0) } : x)
+            }
+            else {
+                return state;
+            }
+
+        case "CLEARCART":
+            return {
+                ...state,
+                [state]: 0,
+            }
+        
+        case "TOTAL":
+            const totalquantity = 0;
+            const total = 0;
+            state.reduce((cartTotal, cartItem) => {
+                const { price, cartQuantity } = cartItem;
+                const itemTotal = price * cartQuantity;
+
+                cartTotal.total += itemTotal;
+                cartTotal.quantity += cartQuantity;
+
+                return cartTotal;
+            },
+                {
+                    total: 0,
+                    quantity: 0,
+                }
+            )
+        break;
+        
         default:
             return state;
-        // break;
-    }   
+    }
 }
-    
-    export default handleCart;
+
+export default handleCart;

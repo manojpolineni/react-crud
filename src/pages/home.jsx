@@ -37,7 +37,7 @@ const HomePage = (props) => {
     const Loading = () => {
     return (
       <>
-        <div className='col-lg-12 col-md-12 col-sm-12'>
+        <div className='col-lg-12 col-md-12 col-sm-12 text-center'>
             <Skeleton /><Skeleton /><Skeleton /> <Skeleton /> <Skeleton /> <Skeleton /> <Skeleton />
         </div>
       </>

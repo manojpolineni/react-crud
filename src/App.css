@@ -15,6 +15,44 @@ nav ul li a{
   width: 80px !important;
   pointer-events: none;
 }
+/* theme dark */
+.bg-black{
+  background-color: black;
+}
+.bg-light-black{
+  background-color: #262626 !important;
+}
+.text-black{
+  color: black;
+}
+.text-light-black{
+  color: #ffffff;
+}
+.bg-dark-primary{
+  background-color: #fff !important;
+}
+.text-dark-primary{
+  color: #303030 !important;
+}
+
+/* theme light */
+.bg-light{
+  background-color: white;
+}
+.bg-light-2{
+  background-color: #dadcde;
+}
+.bg-light-primary{
+  background-color: #000 !important;
+}
+.text-light-primary{
+  color: #ffffff !important;
+}
+
+
+.react-tel-input input{
+  width: 100% !important;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -68,4 +106,8 @@ body.light-theme {
 .fntclr{
   font-weight: 600;
   color: red;
+}
+.fa-arrow-left:before {
+    content: "\f060";
+    font-size: 24px;    
 }
