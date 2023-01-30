@@ -12,8 +12,6 @@ export const handleCart = (state = cart, action) => {
                     ...product,
                     qty: 1,
                 },
-                // localStorage.setItem("item", JSON.stringify(state))
-
             ]
         
         case "DELETEITEM":
@@ -46,8 +44,8 @@ export const handleCart = (state = cart, action) => {
             }
         
         case "TOTAL":
-            const totalquantity = 0;
-            const total = 0;
+            var totalquantity = 0;
+            var total = 0;
             state.reduce((cartTotal, cartItem) => {
                 const { price, cartQuantity } = cartItem;
                 const itemTotal = price * cartQuantity;

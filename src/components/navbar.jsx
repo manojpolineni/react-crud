@@ -19,12 +19,11 @@ function NavBar() {
   const state = useSelector((state) => state.handleCart)
 
   const { theme, toggle, dark } = React.useContext(ThemeContext);
-   const [darkMode, setDarkMode] = useState(theme);
+  const [darkMode, setDarkMode] = useState(theme);
 
-    useEffect(()=>{
-        toggle(darkMode);
-        console.log(darkMode)
-    },[darkMode]);
+  useEffect(()=>{
+    toggle(darkMode);
+  },[darkMode]);
   
   return (  
     <Navbar className='bgclg' expand="md"  style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>  

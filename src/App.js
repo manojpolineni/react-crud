@@ -11,9 +11,12 @@ import FooterPage from './components/footer';
 import CartHome from './shoping/Carthome';
 import ProductInfo from './shoping/productinfo';
 import CartPage from './pages/cart';
+import Login from './pages/login';
 import React from 'react';
 
 import { ThemeContext } from './theme-context'
+import Person from './pages/person';
+import Hello from './pages/hello';
 
 
 function App() {
@@ -23,8 +26,9 @@ function App() {
     // <>
       <div className="app" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+      <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/update/:id" element={<Update />} />
@@ -33,6 +37,10 @@ function App() {
           <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/person" element={<Person />} />
+          <Route path="/hello" element={<Hello />} />
+          <Route path="/person" element={<Person />} />
+          
           <Route path="*" element={<p>Path not resolved</p>} />
         </Routes>
         <FooterPage />

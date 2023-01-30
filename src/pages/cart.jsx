@@ -23,9 +23,13 @@ const CartPage = () => {
     const HandleDecrement = (item) => {
         dispatch(DecreaseCart(item));
     }
+    const total = () => {
+        data.reduce((total, item)=>total+
+        parseFloat((item.price*item.qty).toFixed(2)),0)
+    }
 
     useEffect(() => {
-
+        
     }, [data])
 
     const Cartitem = () => {
@@ -78,12 +82,16 @@ const CartPage = () => {
         return (
             <div className='container rounded-3 pb-5'>
                 <div className='row d-flex'>
-                    <div className='d-flex justify-content-center'>
-                        <Link to='/checkout' className='btn btn-outline-dark px-4 py-2 text-center color_black'>Proceed to Checkout</Link>
-                        <button  className='btn btn-danger px-4 py-2 text-center color_black mx-10' onClick={()=>dispatch(ClearCart)}>Clear Cart</button>
+                    <div className='col-lg6 col-md-6 col-sm-12 d-flex justify-content-around align-items-center'>
+                        <div className='d-flex'>
+                            <Link to='/checkout' className='btn btn-outline-dark px-4 py-2 text-center color_black'>Proceed to Checkout</Link>
+                        </div>
+                        <div>
+                             <button className='btn btn-danger px-4 py-2 text-center color_black mx-10' onClick={() => dispatch(ClearCart)}>Clear Cart</button>
+                        </div>
                     </div>
-                    <div className='d-flex justify-content-end'>
-                        <h4 className='color_red'>total price :{data.reduce((total, item)=>total+
+                    <div className='col-lg6 col-md-6 col-sm-12 d-flex justify-content-end align-items-center'>
+                        <h4 className='color_red fs_18'>Total price : ${data.reduce((total, item)=>total+
                             parseFloat((item.price*item.qty).toFixed(2)),0)}</h4>
                     </div>
                 </div>

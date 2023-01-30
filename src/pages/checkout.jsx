@@ -75,7 +75,9 @@ const CheckOut = () => {
 							<label htmlFor="country">Country</label>
 							<select className="custom-select d-block w-100" id="country" required="">
 								<option value="">Choose...</option>
-								<option>United States</option>
+								<option>INDIA</option>
+								<option>USA</option>
+								<option>AUSTRALIA</option>
 							</select>
 							<div className="invalid-feedback"> Please select a valid country. </div>
 						</div>
@@ -83,7 +85,11 @@ const CheckOut = () => {
 							<label htmlFor="state">State</label>
 							<select className="custom-select d-block w-100" id="state" required="">
 								<option value="">Choose...</option>
-								<option>California</option>
+								  <option>Telangana</option>
+								  <option>Andhra Pradesh</option>
+								  <option>Banglore</option>
+								  <option>Chennai</option>
+								  <option>Kerala</option>
 							</select>
 							<div className="invalid-feedback"> Please provide a valid state. </div>
 						</div>
@@ -144,7 +150,7 @@ const CheckOut = () => {
 						</div>
 					</div>
 					<hr className="mb-4"/>
-					<button className="btn btn-primary btn-lg btn-block" type="submit" Link to='#'>Continue to checkout</button>
+					<button className="btn btn-primary btn-lg btn-block" type="submit" Link to='/order'>Place the Order</button>
 				</form>
 			</div>
 		</div>
