@@ -80,7 +80,10 @@ const ProductInfo = () => {
             <div><Link to="/carthome"><i className="fa-solid fa-arrow-left" /></Link></div>
             <div className='row py-4'>
                 {loading ? <Loading/> : <ShowProduct/>}
-            </div>
+              </div>
+              <div>
+                  {"hello all"}
+              </div>
       </div>
     </div>
   )
