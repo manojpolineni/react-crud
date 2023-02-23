@@ -4,9 +4,9 @@ import useGeolocation from "react-hook-geolocation";
 const Location = () => {
     
     const ComponentWithGeolocation = () => {
-        const geolocation = useGeolocation();
+    const geolocation = useGeolocation();
         
-        return !geolocation.error ? (
+    return !geolocation.error ? (
         <ul>
             <li>Latitude: {geolocation.latitude}</li>
             <li>Longitude: {geolocation.longitude}</li>

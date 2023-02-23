@@ -68,7 +68,7 @@ const ProductInfo = () => {
                     <h3 className='display-6 fw-bold my-4'>${product.price}</h3>
                     <p className='lear py-2'>{product.description}</p>
                     <button className='btn btn-outline-dark px-4 py-2' onClick={() => addProduct(product)}>{addtocart}</button>
-                    <Link to='/cart' className='btn btn-dark ms-2 px-3 py-2'> View Cart</Link>
+                    {addtocart ==="Remove from Cart"?  <Link to='/cart' className='btn btn-dark ms-2 px-3 py-2'>View Cart</Link>:"" }
                 </div>
             </>
         )

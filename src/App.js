@@ -13,11 +13,7 @@ import ProductInfo from './shoping/productinfo';
 import CartPage from './pages/cart';
 import Login from './pages/login';
 import React from 'react';
-
-import { ThemeContext } from './theme-context'
-import Person from './pages/person';
-import Hello from './pages/hello';
-
+import { ThemeContext } from './theme-context';
 
 function App() {
   const { theme } = React.useContext(ThemeContext)
@@ -28,7 +24,7 @@ function App() {
         <NavBar />
       <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/update/:id" element={<Update />} />
@@ -37,9 +33,6 @@ function App() {
           <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/person" element={<Person />} />
-          <Route path="/hello" element={<Hello />} />
-          <Route path="/person" element={<Person />} />
           
           <Route path="*" element={<p>Path not resolved</p>} />
         </Routes>

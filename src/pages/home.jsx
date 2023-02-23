@@ -2,11 +2,16 @@ import React,{useState, useEffect} from 'react';
 import axios from "axios"
 import { Link } from "react-router-dom";
 import Skeleton from 'react-loading-skeleton';
-
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 const HomePage = (props) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const loadData = async () => {
         setLoading(true)
@@ -23,14 +28,16 @@ const HomePage = (props) => {
     useEffect(() => {
         loadData();
     }, []);
+
     const onDelete =async (id) => { 
        await axios.delete(`https://63314104cff0e7bf70e8fdfb.mockapi.io/Developer/${id}`)
-            .then(response => {
-                loadData();
-            })
-            .catch(error => {
-                console.log(error);
-            })
+           .then(response => {
+            handleClose();
+            loadData();
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
     
 
@@ -66,11 +73,23 @@ const HomePage = (props) => {
                             <td>{item.email}</td>
                             <td>{item.age}</td>
                             <td>{item.city}</td>
-                            <td ><button className="btn btn-success color-white"><Link to={`/update/${item.id}`}>Update</Link></button></td>
-                            <td ><button className='btn btn-danger' onClick={()=>onDelete(item.id) }>Delete</button></td>
+                            <td ><button className="btn btn-success color-white"><Link to={`/update/${item.id}`}>Update <i class="fa-solid fa-pen-to-square"></i></Link></button></td>
+                            <td ><button className='btn btn-danger' onClick={()=> handleShow ()}>Delete <i class="fa-regular fa-trash-can"></i></button></td>
+                            <td>
+                                <Modal show={show} onHide={handleClose}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Are You Sure to Delete?</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <Button variant="btn btn-primary mx-2" onClick={()=> handleClose ()}>Close</Button>
+                                        <Button variant="btn btn-danger mx-2" onClick={()=>onDelete(item.id)}>Delete <i class="fa-regular fa-trash-can"></i>
+                                        </Button>
+                                    </Modal.Body>
+                                </Modal>
+                            </td>
                         </tr>
                     )) :  
-                        <Loading/>
+                       <h4 className='text-center py-3'>..oops? No Data to Display</h4>
                     }
                 </tbody>
         </table>)
@@ -83,6 +102,7 @@ const HomePage = (props) => {
                         <div className='d-flex justify-content-center py-5'>
                             {loading ? <Loading/>  : <UserData /> }
                         </div>
+                        
                     </div>
                 </div>
             </div>
