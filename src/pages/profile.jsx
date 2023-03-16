@@ -55,7 +55,6 @@ const Profile = () => {
 									onChange={(e)=>handleData(e.target.value)}
 								/>
 							</label>
-
 							<input type="submit" onClick={''}/>
 						</form>
 					</div>
