@@ -73,8 +73,8 @@ const HomePage = (props) => {
                             <td>{item.email}</td>
                             <td>{item.age}</td>
                             <td>{item.city}</td>
-                            <td ><button className="btn btn-success color-white"><Link to={`/update/${item.id}`}>Update <i class="fa-solid fa-pen-to-square"></i></Link></button></td>
-                            <td ><button className='btn btn-danger' onClick={()=> handleShow ()}>Delete <i class="fa-regular fa-trash-can"></i></button></td>
+                            <td ><button className="btn btn-success color-white"><Link to={`/update/${item.id}`}>Update <i className="fa-solid fa-pen-to-square"></i></Link></button></td>
+                            <td ><button className='btn btn-danger' onClick={()=> handleShow ()}>Delete <i className="fa-regular fa-trash-can"></i></button></td>
                             <td>
                                 <Modal show={show} onHide={handleClose}>
                                     <Modal.Header closeButton>
@@ -82,14 +82,16 @@ const HomePage = (props) => {
                                     </Modal.Header>
                                     <Modal.Body>
                                         <Button variant="btn btn-primary mx-2" onClick={()=> handleClose ()}>Close</Button>
-                                        <Button variant="btn btn-danger mx-2" onClick={()=>onDelete(item.id)}>Delete <i class="fa-regular fa-trash-can"></i>
+                                        <Button variant="btn btn-danger mx-2" onClick={()=>onDelete(item.id)}>Delete <i className="fa-regular fa-trash-can"></i>
                                         </Button>
                                     </Modal.Body>
                                 </Modal>
                             </td>
                         </tr>
                     )) :  
-                       <h4 className='text-center py-3'>..oops? No Data to Display</h4>
+                       <tr>
+                            <td className = 'text-center py-3'>..Ops? No Data to Display</td>
+                       </tr>
                     }
                 </tbody>
         </table>)

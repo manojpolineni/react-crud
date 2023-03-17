@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
-import SearchFilter from 'react-filter-search';
 
 
 const CartHome = () => {
@@ -12,7 +11,6 @@ const CartHome = () => {
   const [ data, setData ] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
-  const [searchInput, setSearchInput] = useState('');
   
   useEffect(() => {
     const cancelToken = axios.CancelToken.source();
