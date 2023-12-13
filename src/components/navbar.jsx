@@ -1,24 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css';  
-import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';  
+import { Nav, Navbar, Container } from 'react-bootstrap';  
 import { Link } from "react-router-dom";
 import Logo from '../../src/assets/images/marcomm-test.png';
-import { BiSun, BiMoon, BiCart} from 'react-icons/bi';
+import { BiSun, BiMoon} from 'react-icons/bi';
 import { useSelector } from 'react-redux';
 import React, { useState, useEffect} from 'react';
 import { ThemeContext } from '../theme-context'
 
-import moment from 'moment';
+// import moment from 'moment';
 import '../App.css';
 
 
 function NavBar() {  
-  const items = JSON.parse(localStorage.getItem('items'));
+  // const items = JSON.parse(localStorage.getItem('items'));
 
-  const today = new Date();
-  const date = moment(today).format('DD MMM, YYYY');
+  // const today = new Date();
+  // const date = moment(today).format('DD MMM, YYYY');
   const state = useSelector((state) => state.handleCart)
 
-  const { theme, toggle, dark } = React.useContext(ThemeContext);
+  const { theme, toggle } = React.useContext(ThemeContext);
   const [darkMode, setDarkMode] = useState(theme);
 
   useEffect(()=>{

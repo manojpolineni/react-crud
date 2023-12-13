@@ -6,7 +6,7 @@ import axios from "axios"
 
 
 const Form = () => {
-    const { register, handleSubmit,formState, formState: { errors,}, reset } = useForm();
+    const { register,  formState: { errors, ...formState } , handleSubmit,  reset } = useForm();
     const { isSubmitting } = formState;
     const navigate=useNavigate();
     

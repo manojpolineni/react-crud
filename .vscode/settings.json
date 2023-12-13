@@ -1,0 +1,7 @@
+{
+    "git.allowForcePush": true,
+    "git.allowNoVerifyCommit": false,
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "material-icon-theme.activeIconPack": "react",
+    "php.validate.run": "onType"
+}

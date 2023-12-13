@@ -3,7 +3,7 @@ import axios from "axios"
 import { Link } from "react-router-dom";
 import Skeleton from 'react-loading-skeleton';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 
 const HomePage = (props) => {
     const [data, setData] = useState([]);
@@ -81,9 +81,9 @@ const HomePage = (props) => {
                                         <Modal.Title>Are You Sure to Delete?</Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
-                                        <Button variant="btn btn-primary mx-2" onClick={()=> handleClose ()}>Close</Button>
-                                        <Button variant="btn btn-danger mx-2" onClick={()=>onDelete(item.id)}>Delete <i className="fa-regular fa-trash-can"></i>
-                                        </Button>
+                                        <button variant="btn btn-primary mx-2" onClick={()=> handleClose ()}>Close</button>
+                                        <button variant="btn btn-danger mx-2" onClick={()=>onDelete(item.id)}>Delete <i className="fa-regular fa-trash-can"></i>
+                                        </button>
                                     </Modal.Body>
                                 </Modal>
                             </td>

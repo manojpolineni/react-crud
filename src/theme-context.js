@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {createContext,useState} from 'react'
 import './App.css';
 
 const themes = {
@@ -21,22 +21,12 @@ const initialState = {
   theme: themes.light,
   toggle: () => {}
 }
-const ThemeContext = React.createContext(initialState)
+export const ThemeContext = createContext(initialState)
 
-function ThemeProvider({ children }) {
-  // Default theme is light
-  const [dark, setDark] = React.useState(false)
-
-  // On mount, read the preferred theme from the persistence
-  // React.useEffect(() => {
-  //   const isDark = localStorage.getItem('dark') === 'true'
-  //   setDark(isDark)
-  // }, [dark])
-
-  // To toggle between dark and light modes
+export function ThemeProvider({ children }) {
+  const [dark, setDark] = useState(false);
   const toggle = () => {
     const isDark = !dark
-    // localStorage.setItem('dark', JSON.stringify(isDark))
     setDark(isDark)
   }
 
@@ -48,5 +38,3 @@ function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   )
 }
-
-export { ThemeProvider, ThemeContext }
